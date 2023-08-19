@@ -1,2 +1,7 @@
 # Flower_Flask_Website
-Need to implement flasknevn on your computer
+Need to implement flaskenv on your computer
+Step:
+```
+pip3 install flask
+source flaskenv/bin/activate
+```
