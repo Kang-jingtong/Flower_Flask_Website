@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+{% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowerPro</title>
+    <link rel="stylesheet" href="../static/style/shoppingCart.css">
+    <script src="../static/js/jquery-3.1.1.min.js"></script>
+    <script src="../static/js/shoppingCart.js"></script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="header">
+        <div class="w">
+            <div class="logo">
+                <!-- <img src="img/logo.png" alt="">  -->
+                <b>购物车</b>
+            </div>
+        </div>
+    </div>
+
+    <div class="functionModule">
+        <div class="func-num">
+            <span>选中的商品总数：</span>
+            <span class="allNum">0</span>
+        </div>
+        <div func-pri>
+            <span>合计：</span>
+            <span class="allPrice">￥120.23</span>
+        </div>
+    </div>
+
+    <div class="cart_box">
+        <div class="container">
+            <div class="flower_list"> 
+               <!-- 表格 -->
+                <form action="">
+                    <table id="shop_cart_box" >
+        
+                        <!-- 功能行 -->
+                        <thead>
+                            <th>
+                                <input type="checkbox" class="checkall">全选
+                            </th>
+                            <th>图片</th>
+                            <th>商品介绍</th>
+                            <th>价格</th>
+                            <th>数量</th>
+                            <th>小计</th>
+                        </thead>
+
+                        <tbody>
+                            <!-- 商品1 -->
+                            <tr class="goods">
+                                <td>    <!-- 选中 -->
+                                    <input type="checkbox" name="" class="check">
+                                </td>
+                                <td class="pic">   <!-- 商品图片 -->
+                                    <img src="./icon/pic.jpg" alt="">
+                                </td>
+                                <td>  <!-- 商品介绍 -->
+                                    <span class="describ">描述描述描述描述描述描述miaohsu描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述</p>
+                                </td>
+                                <td class="per_price">￥120.23</th>
+                                <td class="num"> <!-- 数量 -->
+                                    <a href="javascript:;" class="subtract_num">-</a>
+                                    <!-- 限制用户输入必须为数字，范围1-99 -->
+                                    <input type="text" class="goods_num" value="1" oninput="value=value.replace(/[^\d]/g,'');if(value>99)value=99;if(value<1)value=1;" >
+                                    <a href="javascript:;" class="add_num">+</a>
+                                </td>
+                                <td class="sum_price">￥120.23</th>
+                            </tr>
+                            <!-- 商品2 -->
+                            <tr class="goods">
+                                <td><input type="checkbox" name="" class="check"></td>
+                                <td class="pic"><img src="./icon/pic.jpg" alt=""></td>
+                                <td><p>描述描述描述描述描述描述</p></td>
+                                <td class="per_price">￥120.23</th>
+                                <td class="num">
+                                    <a href="javascript:;" class="subtract_num">-</a>
+                                    <input type="text" class="goods_num" value="1" oninput="value=value.replace(/[^\d]/g,'');if(value>99)value=99;if(value<1)value=1;" >
+                                    <a href="javascript:;" class="add_num">+</a>
+                                </td>
+                                <td class="sum_price">￥120.23</th>
+                            </tr>
+                            <!-- 商品2 -->
+
+                        </tbody>
+                    </table>
+                </form>
+        
+                <!-- 结算模块 -->
+                <div class="settle_account">
+                    <div>
+                        <input type="checkbox" class="checkall">全选&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="remove">删除选中商品</span>
+                    </div>
+
+                    <div>
+                        <span>选中的商品总数：</span>
+                        <span class="allNum">0</span>
+                    </div>
+                    <div>
+                        <span>合计：</span>
+                        <span class="allPrice">￥120.23</span>
+                    </div>
+                    
+                    <div>
+                        <span>结算</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="shoppingCart.js"></script>
+{% endblock %}

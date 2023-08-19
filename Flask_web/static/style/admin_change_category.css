@@ -1,0 +1,68 @@
+body{
+    background-color: #f5f5f5;
+}
+#navigate{
+  font-family: Georgia, Times, 'Times New Roman', serif;
+  margin-bottom: 0px;
+}
+
+form{
+	padding: 10px;
+	margin-bottom: 80px;
+}
+textarea{
+	width: 100%;
+	height: 200px;
+	font-size: 18px;
+}
+fieldset{
+	background-color: #f5f5e6;
+    padding:.35em .625em .75em;
+    margin:0 2px;
+    border:1px solid silver;
+}
+     
+legend{
+	font-family: Times New Roman;
+    padding:.5em;border:0;
+    width:auto;
+    font-size:24px;
+    margin-bottom: 0px;
+    color: #69747C;
+}
+button{
+	border-radius: 5px;
+	margin-left:5px;
+}
+#submitBt{
+	margin-right: 5px;
+	-webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+	background-color: #9bbc58;
+	color: #f5f5f5;
+	border-color:  #9bbc58;
+	margin-top: 15px;
+	float: right;
+}
+#submitBt:hover {
+	color: #f5f5f5;
+    background-color: #7e974c;
+	border-color: #7e974c;
+}
+#submitDiv{
+	text-align: right;
+}
+ul li{
+	list-style: none;
+	display: inline;
+	vertical-align: middle;
+}
+li button{
+	background-color: white;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	outline: none;
+	border: 0;
+}
+li button :hover{
+	background-color: rgb(216, 214, 214);
+}

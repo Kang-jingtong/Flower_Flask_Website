@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+{% extends "staffbase.html" %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="../static/style/admin_change_format.css">
+{% endblock %}
+
+{% block content %}
+
+<!-- fieldset 标签-->
+<img src="../static/img/ChangeInfo.png" width="100%" style="display: block;">
+<form id="formBG">
+    <fieldset>
+        <legend>Change Introduction</legend>
+        <textarea type="text" name="introduction"></textarea>
+    </fieldset>
+
+    <fieldset>
+        <legend>Change photo</legend>
+
+        <label for="updatePic1">
+            <div class="selectPhotoDiv" id="filename1">Click To Upload Photo1</div>
+        <input type="file" id="updatePic1" class="inputfile1" style="display: none;"/>
+        </label>
+        &nbsp;&nbsp;
+
+        <label for="updatePic2">
+            <div class="selectPhotoDiv" id="filename2">Click To Upload Photo2</div>
+        <input type="file" id="updatePic2" class="inputfile2" style="display: none;"/>
+        </label>
+        &nbsp;&nbsp;
+
+        <label for="updatePic3">
+            <div class="selectPhotoDiv" id="filename3">Click To Upload Photo3</div>
+        <input type="file" id="updatePic3" class="inputfile3" style="display: none;"/>
+        </label>
+
+        <script type="text/javascript" src="../static/js/admin_change_format.js"></script>
+    </fieldset>
+    <br>
+    <div id="submitDiv">
+        <input type="submit" id="submitBt" class="btn btn-primary" value="Submit"/>
+    </div>
+</form>
+
+
+{% endblock %}

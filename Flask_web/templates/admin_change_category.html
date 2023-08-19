@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+{% extends "staffbase.html" %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="../static/style/admin_change_category.css">
+{% endblock %}
+{% block content %}
+
+<!-- fieldset 标签-->
+    <img src="../static/img/ModifyCategory.png" width="100%" style="display: block;">
+<form id="formBG">
+    <!--fieldset category -->
+    <fieldset>
+        <legend>Change Category1</legend>
+    <ul>
+        <li><button type="button" style="color: white; background-color: #5bc0de;" data-toggle="modal" data-target="#C1Modal" id="C1Bt">+</button></li>
+        <li><button>Rose</button> </li>
+        <li><button>Lily</button></li>
+        <li><button>Leaf</button> </li>
+        <li><button>Babysbreath</button> </li>
+        <li><button>Chrysanthemum</button></li>
+        <li><button>Combine</button> </li>
+    </ul>
+    </fieldset>
+
+    <fieldset>
+        <legend>Change Category2</legend>
+    <ul>
+        <li><button type="button" style="color: white; background-color: #d9534f;" data-toggle="modal" data-target="#C2Modal" id="C2Bt">+</button></li>
+        <li><button>Love</button> </li>
+        <li><button>Firendship</button></li>
+        <li><button>Home</button></li>
+    </ul>
+    </fieldset>
+
+    <fieldset>
+        <legend>Change Category3</legend>
+    <ul>
+        <li><button type="button" style="color: white; background-color: #5cb85c;" data-toggle="modal" data-target="#C3Modal" id="C3Bt">+</button></li>
+        <li><button>Red</button> </li>
+        <li><button>Yellow</button></li>
+        <li><button>Colorful</button> </li>
+    </ul>
+    </fieldset>
+
+    <fieldset>
+        <legend>Change Category4</legend>
+    <ul>
+        <li><button type="button" style="color: white; background-color: #f0ad4e;" data-toggle="modal" data-target="#C4Modal" id="C4Bt">+</button></li>
+        <li><button>0-50</button> </li>
+        <li><button>50-100</button></li>
+        <li><button>100-200</button> </li>
+    </ul>
+    </fieldset>
+    
+    <br>
+    <input type="submit" id="submitBt" class="btn btn-primary" value="Submit"/>
+</form>
+
+<!--添加分类 -->
+
+<!-- Add Category1 dialog-->
+<div class="modal fade" id="C1Modal" tabindex="-1" role="dialog" aria-labelledby="C1ModalLabel">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="addModalLabel">Add a new Category1</h4>
+  </div>
+    <div class="modal-body">
+        <form action="#" method="post">
+        <div class="form-group">
+          <label for="C1">Category1</label>
+          <input type="text" id="C1" name="C1" class="form-control" placeholder="Category1" data-options="required:true"/>
+        </div>
+    </div>
+    <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <input type="submit" class="btn btn-primary" value="Submit"/>
+  </div>
+    </form>
+</div>
+</div>
+</div>
+
+<!-- Add Category2 dialog-->
+<div class="modal fade" id="C2Modal" tabindex="-1" role="dialog" aria-labelledby="C2ModalLabel">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="addModalLabel">Add a new Category2</h4>
+  </div>
+    <div class="modal-body">
+        <form action="#" method="post">
+        <div class="form-group">
+          <label for="C2">Category2</label>
+          <input type="text" id="C2" name="C2" class="form-control" placeholder="Category2" data-options="required:true"/>
+        </div>
+    </div>
+    <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <input type="submit" class="btn btn-primary" value="Submit"/>
+  </div>
+    </form>
+</div>
+</div>
+</div>
+
+<!-- Add Category3 dialog-->
+<div class="modal fade" id="C3Modal" tabindex="-1" role="dialog" aria-labelledby="C3ModalLabel">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="addModalLabel">Add a new Category3</h4>
+  </div>
+    <div class="modal-body">
+        <form action="#" method="post">
+        <div class="form-group">
+          <label for="C3">Category2</label>
+          <input type="text" id="C3" name="C3" class="form-control" placeholder="Category3" data-options="required:true"/>
+        </div>
+    </div>
+    <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <input type="submit" class="btn btn-primary" value="Submit"/>
+  </div>
+    </form>
+</div>
+</div>
+</div>
+
+<!-- Add Category4 dialog-->
+<div class="modal fade" id="C4Modal" tabindex="-1" role="dialog" aria-labelledby="C4ModalLabel">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="addModalLabel">Add a new Category4</h4>
+  </div>
+    <div class="modal-body">
+        <form action="#" method="post">
+        <div class="form-group">
+          <label for="C4">Category4</label>
+          <input type="text" id="C4" name="C4" class="form-control" placeholder="Category4" data-options="required:true"/>
+        </div>
+    </div>
+    <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <input type="submit" class="btn btn-primary" value="Submit"/>
+  </div>
+    </form>
+</div>
+</div>
+</div>
+
+
+{% endblock %}

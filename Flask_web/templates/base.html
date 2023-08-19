@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../static/style/base.css">
+        <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="../static/js/jquery-3.1.1.min.js"></script>
+        <script src="../static//js/bootstrap.min.js"></script>
+        <title>Base</title>
+        {% block head %}
+        {% endblock %}
+    </head>
+
+    <div>
+        <ul>
+            <a class="logo" style="width: 20%; float: left;" href="{{ url_for('index') }}">FlowerPro</a>
+            <li style="width: 20%"><a href="{{ url_for('user_center') }}">User Center</a></li>
+            <li style="width: 20%"><a href="{{ url_for('shopping_cart') }}">Shopping Cart</a></li>
+            <li style="width: 20%"><a href="{{ url_for('login') }}">Register/Login</a></li>
+            <li style="width: 20%"><a href="{{ url_for('user_sendMessage')}}">Contact Us</a></li>
+        </ul>
+    </div>
+    </hr>
+        {% block content %}
+        {% endblock %}
+    </body>
+
+</html>

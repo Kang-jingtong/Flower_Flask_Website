@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+{% extends "staffbase.html" %}
+{% block head %}
+<script type="text/javascript">
+  function changeStatus(){
+    var Which = document.getElementById("status");
+    var WhichBt = document.getElementById("statusBt");
+    var showContent = document.getElementById("showContent");//显示文本的对象//输入文字的对象
+    if(Which.value == "arrived"){
+      showContent.textContent="arrived";
+      WhichBt.style.backgroundColor="#447ab2";
+      WhichBt.style.borderColor = "#447ab2";
+    }
+    else{
+      showContent.textContent="on the way";
+      WhichBt.style.backgroundColor = "#e7af5f";
+      WhichBt.style.borderColor = "#e7af5f";
+    }
+  }
+</script>
+<link rel="stylesheet" type="text/css" href="../static/style/admin_item_management.css">
+{% endblock %}
+{% block content %}
+
+<!--商品抬头 -->
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Order number</th>
+        <th scope="col">FlowerName</th>
+        <th scope="col">Number</th>
+        <th scope="col">Buyer</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Address</th>
+        <th scope="col">Date</th>
+        <th scope="col">Delivery mode</th>
+        <th scope="col">If urgent</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+  
+  <!-- 商品主要内容-->
+    <tbody>
+      <tr>
+        <td scope="row">1098</td>
+        <td>Long Stem Red Rose</td>
+        <td>1</td>
+        <td>Kang</td>
+        <td>13512349876</td>
+        <td></td>
+        <td>2021-04-02 17:39</td>
+        <td>Pick up</td>
+        <td>Normal</td>
+        <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#addModal" id="statusBt"><span id="showContent">on the way</span></button></td>
+      </tr>
+    </tbody>
+
+    <tbody>
+          <tr>
+            <td scope="row">1223</td>
+            <td>Long Stem Red Rose</td>
+            <td>2</td>
+            <td>Wang</td>
+            <td>13512341276</td>
+            <td>Beijing No.1 Middle School</td>
+            <td>2021-04-02 14:15</td>
+            <td>Delivery</td>
+            <td>Normal</td>
+            <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#addModal" id="statusBt"><span id="showContent">on the way</span></button></td>
+          </tr>
+        </tbody>
+        <tbody>
+              <tr>
+                <td scope="row">1528</td>
+                <td>Beyond Blue Bouquet</td>
+                <td>1</td>
+                <td>Lily</td>
+                <td>13422129876</td>
+                <td></td>
+                <td>2021-04-01 15:16</td>
+                <td>Pick up</td>
+                <td style="color: red;">Urgent</td>
+                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" id="statusBt"><span id="showContent">arrived</span></button></td>
+              </tr>
+            </tbody>
+            <tbody>
+                  <tr>
+                    <td scope="row">1579</td>
+                    <td>Long Stem Red Rose</td>
+                    <td>2</td>
+                    <td>Peter</td>
+                    <td>13512344576</td>
+                    <td>WestRoad No.5</td>
+                    <td>2021-03-24 13:28</td>
+                    <td>Delivery</td>
+                    <td style="color: red;">Urgent</td>
+                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" id="statusBt"><span id="showContent">arrived</span></button></td>
+                  </tr>
+                </tbody>
+                <tbody>
+                      <tr>
+                        <td scope="row">1234</td>
+                        <td>Long Stem Red Rose</td>
+                        <td>1</td>
+                        <td>Lisa</td>
+                        <td>13565349876</td>
+                        <td></td>
+                        <td>2021-03-23 10:45</td>
+                        <td>Pick up</td>
+                        <td>Normal</td>
+                        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" id="statusBt"><span id="showContent">arrived</span></button></td>
+                      </tr>
+                    </tbody>
+                    <tbody>
+                          <tr>
+                            <td scope="row">1043</td>
+                            <td>Long Stem Red Rose</td>
+                            <td>1</td>
+                            <td>Jack</td>
+                            <td>13512349825</td>
+                            <td>Beijing Road No.201</td>
+                            <td>2021-03-19 12:03</td>
+                            <td>Delivery</td>
+                            <td>Normal</td>
+                            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" id="statusBt"><span id="showContent">arrived</span></button></td>
+                          </tr>
+                        </tbody>
+                        <tbody>
+                              <tr>
+                                <td scope="row">1498</td>
+                                <td>Long Stem Red Rose</td>
+                                <td>3</td>
+                                <td>Bob</td>
+                                <td>13252349876</td>
+                                <td></td>
+                                <td>2021-03-18 09:15</td>
+                                <td>Pick Up</td>
+                                <td style="color: red;">Urgent</td>
+                                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" id="statusBt"><span id="showContent">arrived</span></button></td>
+                              </tr>
+                            </tbody>
+  </table>
+  
+  <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="addModalLabel">Status</h4>
+        </div>
+        <div class="modal-body">
+          <form action="#" method="post">
+          <input type="hidden" name="oper" value="add"/>
+          <div class="form-group">
+            <lable for="changeStatus">Select a status</lable>
+            <select id="status" name="addCategory1" class="form-control">
+              <option name="content" value="arrived" >arrived</option>
+              <option name="content" value="onTheWay" >on the way</option>
+            </select>
+          </div>
+          <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="changeStatus()">Submit</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- 页码 -->
+<nav aria-label="Page navigation" style="position:fixed; bottom:0; left:40%; ">
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true" style="color: black;">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#" style="color: black;">1</a></li>
+    <li><a href="#" style="color: black;">2</a></li>
+    <li><a href="#" style="color: black;">3</a></li>
+    <li><a href="#" style="color: black;">4</a></li>
+    <li><a href="#" style="color: black;">5</a></li>
+    <li>
+      <a href="#" aria-label="Next" >
+        <span aria-hidden="true" style="color: black;">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+{% endblock %}

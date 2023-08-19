@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+{% extends "staffbase.html" %}
+
+ {% block head %}
+ <link rel="stylesheet" type="text/css" href="../static/style/admin_item_management.css">
+ {% endblock %}
+
+{% block content %}
+
+
+<!--商品抬头 -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" id="addBt"><span class="glyphicon glyphicon-plus"></button>
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">ID</th>
+      <th scope="col">Picture</th>
+      <th scope="col">FlowerName</th>
+      <th scope="col">Price</th>
+      <th scope="col">Category1</th>
+      <th scope="col">Category2</th>
+      <th scope="col">Category3</th>
+      <th scope="col">Category4</th>
+      <th scope="col">Storage</th>
+    </tr>
+  </thead>
+
+<!-- 商品主要内容-->
+  <tbody>
+    <tr>
+      <td scope="row">
+         <button class="btn btn-mini btn-danger" type="button" id="name" name="name"><span class="glyphicon glyphicon-trash"></span></button>
+          
+          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal" id="editBt"><span class="glyphicon glyphicon-refresh"></button>
+      </td>
+      <td>001</td>
+      <td ><img src="../static/img/flower1.2.png" alt="玫瑰花001" height="100" width="100"></td>
+      <td>Light of My Life Bouquet</td>
+      <td>$55</td>
+      <td>Combine</td>
+      <td>Home</td>
+      <td>Colorful</td>
+      <td>$50-100</td>
+      <td>1000</td>
+  </tbody>
+
+  <tbody>
+        <tr>
+          <td scope="row">
+             <button class="btn btn-mini btn-danger" type="button" id="name" name="name"><span class="glyphicon glyphicon-trash"></span></button>
+              
+              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal" id="editBt"><span class="glyphicon glyphicon-refresh"></button>
+          </td>
+               <td>002</td>
+               <td ><img src="../static/img/flower2.2.png" alt="玫瑰花001" height="100" width="100"></td>
+               <td>Beyond Blue Bouquet</td>
+                <td>$70</td>
+               <td>Combine</td>
+               <td>Friendship</td>
+               <td>White&Purple</td>
+              <td>$50-100</td>
+               <td>134</td>
+      </tbody>
+  
+      <tbody>
+            <tr>
+              <td scope="row">
+                 <button class="btn btn-mini btn-danger" type="button" id="name" name="name"><span class="glyphicon glyphicon-trash"></span></button>                 
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal" id="editBt"><span class="glyphicon glyphicon-refresh"></button>
+              </td>
+                   <td>003</td>
+                   <td ><img src="../static/img/flower3.2.png" alt="玫瑰花001" height="100" width="100"></td>
+                   <td>Marmalade Skies Bouquet</td>
+                    <td>$50</td>
+                   <td>Combine</td>
+                   <td>Festival</td>
+                   <td>Colorful</td>
+                  <td>$0-50</td>
+                   <td>62</td>
+          </tbody>
+      
+          <tbody>
+                <tr>
+                  <td scope="row">
+                     <button class="btn btn-mini btn-danger" type="button" id="name" name="name"><span class="glyphicon glyphicon-trash"></span></button>                 
+                      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal" id="editBt"><span class="glyphicon glyphicon-refresh"></button>
+                  </td>
+                       <td>004</td>
+                       <td ><img src="../static/img/flower4.2.png" alt="玫瑰花001" height="100" width="100"></td>
+                       <td>Rainbow Rose Bouquet 12 Stem With Vase</td>
+                        <td>$70</td>
+                       <td>Rose</td>
+                       <td>Love</td>
+                       <td>Colorful</td>
+                      <td>$50-100</td>
+                       <td>10</td>
+          </tbody>
+
+          <tbody>
+                <tr>
+                  <td scope="row">
+                     <button class="btn btn-mini btn-danger" type="button" id="name" name="name"><span class="glyphicon glyphicon-trash"></span></button>                 
+                      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal" id="editBt"><span class="glyphicon glyphicon-refresh"></button>
+                  </td>
+                       <td>005</td>
+                       <td ><img src="../static/img/flower5.2.png" alt="玫瑰花001" height="100" width="100"></td>
+                       <td>Long Stem Red Rose</td>
+                        <td>$75</td>
+                       <td>Rose</td>
+                       <td>Love</td>
+                       <td>Red</td>
+                      <td>$50-100</td>
+                       <td>345</td>
+          </tbody>
+
+</table>
+
+
+
+<!-- Add Pop-up dialog-->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="addModalLabel">Add Flower</h4>
+      </div>
+      <div class="modal-body">
+        <form action="#" method="post">
+        <input type="hidden" name="oper" value="add"/>
+        <div class="form-group">
+          <label for="fname">FlowerName</label>
+          <input type="text" id="fname" name="fname" class="form-control" placeholder="Flower name" data-options="required:true"/>
+        </div>
+         <div class="form-group">
+           <label>Picture</label><br>
+          <label for="fpic" class=" btn btn-default">Add Flower Picture</label>
+          <input type="file" id="fpic" name="fpic" class="form-control" style="display:none" data-options="required:true"/>
+        </div>
+        <div class="form-group">
+          <label for="fprice">Price</label>
+          <input type="text" id="fprice" name="fprice" class="form-control" placeholder="Price" data-options="required:true"/>
+        </div>
+        <div class="form-group">
+          <lable for="addCategory1">Category1</lable>
+          <select id="addCategory1" name="addCategory1" class="form-control">
+          <option value="Rose">Rose</option>
+          <option value="Combine">Combine</option>
+          <option value="Lily">Lily</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <lable for="addCategory2">Category2</lable>
+          <select id="addCategory2" name="addCategory2" class="form-control">
+          <option value="Love">Love</option>
+          <option value="Friendship">Friendship</option>
+          <option value="Friendship">Home</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <lable for="addCategory3">Category3</lable>
+          <select id="addCategory3" name="addCategory3" class="form-control">
+          <option value="Red">Red</option>
+          <option value="Yellow">Colerful</option>
+          <option value="White">White&Purple</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <lable for="addCategory4">Category4</lable>
+          <select id="addCategory4" name="addCategory4" class="form-control">
+          <option value="0-50">0-50</option>
+          <option value="50-100">50-100</option>
+          <option value="100-200">100-200</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <lable for="addStorage">Storage</lable>
+          <input type="text" id="addStorage" name="addStorage" class="form-control" data-options="required:true"/>
+        </div>
+
+        <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-primary" value="Submit"/>
+      </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- edit Pop-up dialog-->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="editModalLabel">Edit Flower</h4>
+      </div>
+      <div class="modal-body">
+        <form action="EmployeeServlet" method="post">
+        <input type="hidden" name="oper" value="add"/>
+        <div class="form-group">
+          <label for="fname">FlowerName</label>
+          <input type="text" id="fname" name="fname" class="form-control" placeholder="Flower name" data-options="required:true"/>
+        </div>
+         <div class="form-group">
+          <label for="fpic">Picture</label><br>
+          <label for="fpic" class=" btn btn-default" >Change Flower Picture</label>
+          <input type="file" id="fpic" name="fpic" class="form-control" style="display: none;" data-options="required:true"/>
+        </div>
+        <div class="form-group">
+          <label for="fprice">Price</label>
+          <input type="text" id="fprice" name="fprice" class="form-control" placeholder="Price" data-options="required:true"/>
+        </div>
+        <div class="form-group">
+          <lable for="addCategory1">Category1</lable>
+          <select id="addCategory1" name="addCategory1" class="form-control">
+          <option value="Rose">Rose</option>
+          <option value="Lily">Lily</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <lable for="addCategory2">Category2</lable>
+          <select id="addCategory2" name="addCategory2" class="form-control">
+          <option value="Love">Love</option>
+          <option value="Friendship">Friendship</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <lable for="addCategory3">Category3</lable>
+          <select id="addCategory3" name="addCategory3" class="form-control">
+          <option value="Red">Red</option>
+          <option value="Yellow">Yellow</option>
+          <option value="White">White</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <lable for="addCategory4">Category4</lable>
+          <select id="addCategory4" name="addCategory4" class="form-control">
+          <option value="0-100">0-100</option>
+          <option value="100-200">100-200</option>
+          <option value="200-300">200-300</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <lable for="addStorage">Storage</lable>
+          <input type="text" id="addStorage" name="addStorage" class="form-control" data-options="required:true"/>
+        </div>
+
+        <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-primary" value="Submit"/>
+      </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 页码 -->
+<nav aria-label="Page navigation" style="position:relative; bottom:0; left:40%; ">
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true" style="color: black;">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#" style="color: black;">1</a></li>
+    <li><a href="#" style="color: black;">2</a></li>
+    <li><a href="#" style="color: black;">3</a></li>
+    <li><a href="#" style="color: black;">4</a></li>
+    <li><a href="#" style="color: black;">5</a></li>
+    <li>
+      <a href="#" aria-label="Next" >
+        <span aria-hidden="true" style="color: black;">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+{% endblock %}

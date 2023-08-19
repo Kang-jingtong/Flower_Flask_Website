@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+{% extends "base.html" %}
+
+{% block content %}
+
+{{ returnMessage }}
+
+<a href="{{ url_for('index') }}">Homepage</a> </br>
+<a href="{{ url_for('item_intro') }}">item_intro</a></br>
+<a href="{{ url_for('admin_login') }}">admin_login</a></br>
+<a href="{{ url_for('admin_item_management') }}">admin_item_management</a></br>
+<a href="{{ url_for('admin_message') }}">admin_message</a></br>
+<a href="{{ url_for('admin_change_category') }}">admin_change_category</a></br>
+<a href="{{ url_for('admin_change_format') }}">admin_change_format</a></br>
+<a href="{{ url_for('admin_order_info') }}">admin_order_info</a></br>
+
+{% endblock %}

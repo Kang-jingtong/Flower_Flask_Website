@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="../static/style/user_sendMessage.css">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="header">
+      <span id="hello_text">Send A Message To The Store</span>
+  </div>
+  <div class="body">
+      <div class="chat">
+          <div class="chat-main">
+                {% for msg in chatMessage %}
+                {% if msg.Sender != 'admin' %}
+                <div class="chat-line">
+                  <h6>{{ msg.sendTime }}</h6>
+                  <p>{{ msg.Message }}</p>
+                  <br>
+                </div>
+                {% endif %}
+                {% if msg.Sender == 'admin' %}
+                <div class="chat-line-cus">
+                    <h6>{{ msg.sendTime }}</h6>
+                    <p>{{ msg.Message }}</p>
+                    <br>
+                 </div>
+                 {% endif %}
+                 {% endfor %}
+                 <div class="chat-line-new">
+                
+                </div>
+                <div class="chat-line-cus-new">
+    
+                </div>
+          </div>
+          <div class="chat-send">
+              <textarea class="chat-input"></textarea>
+              <div class="chat-send-bottom">
+                  <span class="chat-send-tip">Enter 换行</span>
+                  <button class="chat-send-btn">发送</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+<script type="text/javascript">
+  var socket = io.connect('http://' + document.domain + ':' + location.port, {query: "source=user"});
+  var users = [];
+  var my_session_id;
+  var my_session_name;
+  socket.on( 'connect', function() {
+      var textarea = $('button').on('click',function(e){
+          e.preventDefault()
+        //   让current_id=userid
+        let textarea = $('textarea').val()
+        var input = document.getElementsByClassName('chat-input')[0];
+        var text = input.value;
+        if(text==''){
+            alert("Reponse can not be empty");
+        }
+        //console.log(text);
+        else{
+            socket.emit('my event',{
+              message: textarea,
+              sid: my_session_id,
+              name: my_session_name
+          })
+            $( 'div.chat-main' ).append( '<div class="chat-line"><p>'+text+'</p></div>')
+            
+            input.value='';
+            input.focus();
+        }
+      })
+  })
+  socket.on('sendback_session_id', function(msg) {
+      my_session_id = msg
+  })
+  socket.on('sendback_session_name', function(msg) {
+      my_session_name = msg
+  })
+  socket.on( 'my response', function( msg ) {
+    $( 'div.chat-main' ).append( '<div class="chat-line-cus"><p>'+msg.message+'</p></div>' )
+    
+  })
+
+  </script>
+
+{% endblock %}

@@ -1,0 +1,95 @@
+body{
+    background-color: #f5f5f5;
+}
+#navigate{
+  font-family: Georgia, Times, 'Times New Roman', serif;
+  margin-bottom: 0px;
+}
+
+form{
+	padding: 10px;
+	margin-bottom: 80px;
+}
+textarea{
+	width: 100%;
+	height: 200px;
+	font-size: 18px;
+}
+fieldset{
+	background-color: #f5f5e6;
+    padding:.35em .625em .75em;
+    margin:0 2px;
+    border:1px solid silver;
+}
+     
+legend{
+	font-family: Times New Roman;
+    padding:.5em;border:0;
+    width:auto;
+    font-size:24px;
+    margin-bottom: 0px;
+    color: #69747C;
+}
+#submitBt{
+	margin-right: 5px;
+	-webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+	background-color: #9bbc58;
+	color: #f5f5f5;
+	border-color:  #9bbc58;
+	margin-top: 15px;
+	float: right;
+	border: none;
+}
+#submitBt:hover {
+	color: #f5f5f5;
+    background-color: #7e974c;
+	border-color: #7e974c;
+}
+#submitDiv{
+	text-align: right;
+}
+.title{
+	font-family: Georgia;
+	text-align: center;
+	background-color: #4682B4;
+	padding: 10px;
+	color: white;
+	font-size: 32px;
+}
+
+.inputfile {
+	position: absolute;
+	left: 0;
+	opacity: 0;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+}
+
+.selectPhotoDiv{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #d0cfa1;
+	border: 3px dotted #b6b58d;
+	border-radius: 10px;
+}
+
+label {
+	display: inline-block;
+	position: relative;
+	height: 100px;
+	width: 400px;
+}
+
+p{
+	float: right;
+}
+
+
+

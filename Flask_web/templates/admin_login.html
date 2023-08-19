@@ -1,0 +1,94 @@
+<!doctype html>
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="../static/style/login.css">
+<script src="../static/js/loginCheckUsername.js"></script>
+
+<div id="background">
+	<div>
+		<h1 id="flower">Flower ID</h1>
+	</div>
+	<form action="" method="post" novalidate>
+
+		{{ form.hidden_tag() }}
+
+		<div>
+			
+			{% if form.userName.errors %}
+
+			{{ form.userName(style="border-style: solid; border-width: thin; border-color: #FF0000") }} <br/>
+
+			{% else %}
+			
+			{{ form.userName(id="email1") }} <br/>
+		
+			{% endif %}
+			
+			{% if form.password.errors %}
+
+			{{ form.password(style="border-style: solid; border-width: thin; border-color: #FF0000") }} <br/>
+
+			{% else %}
+
+			{{ form.password(id="password") }} <br/>
+			
+			{% endif %}
+			
+			<div id="checkuser"> </div>
+
+			{{ form.submit(id="submit") }} <br/>
+			
+		</div>
+
+	</form>
+</div>
+
+<div id="welcomeBox">
+	<div>
+		<h1 id="welcome">Welcome to FlowerPro</h1>
+	</div>
+	<div>
+		<img loading="lazy" src="../static/img/login&register/1.jpg" alt="flower" width="10%" height="20%">
+		<img loading="lazy" src="../static/img/login&register/2.jpg" alt="flower" width="10%" height="20%">
+		<img loading="lazy" src="../static/img/login&register/3.jpg" alt="flower" width="10%" height="20%">
+		<img loading="lazy" src="../static/img/login&register/4.jpg" alt="flower" width="10%" height="20%">
+		<img loading="lazy" src="../static/img/login&register/5.jpg" alt="flower" width="10%" height="20%">
+		<img loading="lazy" src="../static/img/login&register/6.jpg" alt="flower" width="10%" height="20%">
+	</div>
+	<div>
+		<br/>
+		<a>Create your Flower ID</a>
+	</div>
+</div>
+
+<div id="bottom">
+	<table>
+		<tr>
+			<td><b>Categories</b></td>
+			<td><b>Language</b></td>
+			<td><b>User Center</b></td>
+			<td><b>About us</b></td><br/>
+		</tr>
+		<tr>
+			<td>category 1</td>
+			<td>Chinese</td>
+			<td>Manage your account</td>
+			<td>Contact us</td><br/>
+		</tr>
+		<tr>
+			<td>category 2</td>
+			<td>English</td>
+			<td>Messages</td>
+			<td>Newsroom</td><br/>
+		</tr>
+		<tr>
+			<td>category 3</td>
+			<td></td>
+			<td></td>
+			<td>Job oppotunities</td><br/>
+		</tr>
+	</table>
+</div>
+
+{% endblock %}

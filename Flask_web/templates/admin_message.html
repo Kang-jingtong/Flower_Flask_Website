@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+{% extends "staffbase.html" %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="../static/style/admin_message.css">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="header">
+      <span id="hello_text" style="margin-left: 60%;"></span>
+  </div>
+  <div class="body">
+      <div class="friend-list">
+          
+      </div>
+      <div class="chat">
+          <div class="chat-main" id='test'>
+            
+          </div>
+          <div class="chat-send">
+              <textarea class="chat-input"></textarea>
+              <div class="chat-send-bottom">
+                  <span class="chat-send-tip">Enter 换行</span>
+                  <button class="chat-send-btn">发送</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+  <script type="text/javascript">
+    var socket = io.connect('http://' + document.domain + ':' + location.port, {query: "source=admin"});
+    users=[]
+    var usersids=[];
+    var userIndex;
+    socket.on( 'connect', function() {
+        var textarea = $('button').on('click',function(e){
+            e.preventDefault()
+            let textarea = $('textarea').val()
+            var input = document.getElementsByClassName('chat-input')[0];
+            var text = input.value;
+            if(text==''){
+                alert("Reponse can not be empty");
+            }
+            //console.log(text);
+            else{
+                socket.emit('admin event',{
+                message: textarea,
+                session_id: usersids[userIndex], 
+                name: users[userIndex]
+                // usersids[userIndex] users[userIndex]
+                })
+                $( 'div.chat-main' ).append( '<div class="chat-line"><p>'+text+'</p><div>')
+                
+                input.value='';
+                input.focus();
+            }
+        })
+        
+    } )
+    socket.on( 'my response', function( msg ) {
+        $( 'div.chat-main' ).append( '<div class="chat-line-cus"><p>'+msg.message+'</p></div>' )
+
+    })
+
+    socket.on('refresh_users', function( msg ) {
+       users=msg;
+       for(var j=0;j<users.length;j++){
+          //  $( 'div.friend-list' ).append('<button id=j onclick=getUserName(this) value = users[j]>'+users[j]+'</button>')
+           $( 'div.friend-list' ).append(`<button id=${j} onclick=getUserName(this,${j}) value = ${users[j]}>`+users[j]+"</button>")
+       }
+      // refresh pages
+
+    })
+
+  socket.on('refresh message', function(chatMessage) {
+    $('#test').html("")
+    i=0;
+    while(i<chatMessage.length){
+      if(chatMessage[i].Sender == "admin"){
+        $('#test').append("<div class='chat-line'><h6>"+chatMessage[i].sendTime+"</h6><p>"+chatMessage[i].Message+"</p></div>")
+      }
+      else{
+        $('#test').append("<div class='chat-line-cus'><h6>"+chatMessage[i].sendTime+"</h6><p>"+chatMessage[i].Message+"</p></div>")
+      }
+      i++;
+    }
+    // $('#test').html("{% for msg in chatMessage %} {% if msg.Sender == 'admin' %}<div class='chat-line'><h6>{{ msg.sendTime }}</h6><p>{{ msg.Message }}</p><br></div>{% endif %}{% if msg.Sender != 'admin' %}<div class='chat-line-cus'><h6>{{ msg.sendTime }}</h6><p>{{ msg.Message }}</p><br></div>{% endif %}{% endfor %}")
+  })
+
+  socket.on('refresh_usersids', function( msg ) {
+       usersids=msg;
+
+  })
+  function getUserName(button,id){
+    var a;
+    a = document.getElementById(id).innerHTML;
+    console.log("==========");
+    console.log(a);
+    var index=0;
+    while(users.length-index!=0 && a!=users[index]){
+        index=index+1;
+    }
+    console.log("=======index========")
+    console.log(index);
+    console.log("========users[index]=======")
+    console.log(users[index]);
+    userIndex=index;
+    // show who the user is chatting to
+    let hello_text = document.querySelector('#hello_text');
+    hello_text.textContent = users[index];
+    // socket chang user history
+    json = {
+      'username': users[index],
+      'session_id':usersids[index]
+    }
+    socket.emit('user history',json)
+  }
+  </script>
+
+{% endblock %}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<meta name="keywords" content="keyword1,keyword2,keyword3">
+<meta name="description" content="this is my page">
+<meta name="content-type" content="text/html; charset=UTF-8">
+
+<div id="head1">
+    <center>
+        <div id="heading">FlowerPro</div>
+    </center>
+
+
+    <center>
+        <div class="search">
+            {{ form.query }}
+            {{ form.submit }}
+        </div>
+    </center>
+
+
+
+
+
+</div>
+<script>
+    $('#head1').css('-webkit-filter', 'grayscale(50%)');
+</script>
+
+<div>
+    <p class="cate">Categories</p>
+</div>
+
+<div class="img">
+        <a target="_blank" href=" ">
+            <img loading="lazy" src="../static/img/homepage/1.jpg" alt="misoshu" width="20%" height="10%">
+        </a>
+        <div class="desc">color</div>
+    </div>
+
+    <div class="img">
+        <a target="_blank" href=" ">
+            <img loading="lazy" src="../static/img/homepage/2.jpg" alt="misoshu" width="20%" height="10%">
+        </a>
+        <div class="desc">meaning</div>
+    </div>
+
+    <div class="img">
+        <a target="_blank" href=" ">
+            <img loading="lazy" src="../static/img/homepage/1.jpg" alt="misoshu" width="20%" height="10%">
+        </a>
+        <div class="desc">material</div>
+    </div>
+
+    <div class="img">
+        <a target="_blank" href=" ">
+            <img loading="lazy" src="../static/img/homepage/4.jpg" alt="misoshu" width="20%" height="auto">
+        </a>
+        <div class="desc">price</div>
+    </div>
+
+
+<div class="re">
+    <img class="recommand" loading="lazy" src="../static/img/homepage/1.jpg">
+    <div>
+        <p class="describtion">safhjashfjhafdhjakhfduahfjakhfsafhjashfjhafdhjakhfduahfjakhfdadfhagsjfhagsfsafhjashfjhafdhjakhfduahfjakhfdadfhagsjfhagsfsafhjashfjhafdhjakhfduahfjakhfdadfhagsjfhagsfsafhjashfjhafdhjakhfduahfjakhfdadfhagsjfhagsfdadfhagsjfhagsf</p>
+    </div>
+</div>
+
+
+
+
+
+<div class="ending" style="margin-top: 50%">
+    <center>
+        <p class="endingtext">introduction</p>
+    </center>
+</div>
+
+{% endblock %}

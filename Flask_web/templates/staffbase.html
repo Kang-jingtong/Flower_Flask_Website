@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+         <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://cdn.staticfile.org/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <title>staffBase</title>
+        {% block head %}
+        {% endblock %}
+    </head>
+
+    <body>
+        
+        <!-- navigation bar --> 
+<nav class="navbar navbar-inverse" id="navigate">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display无论屏幕缩小多少都显示 -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand" style="color: #9BBC58;">Flowershop Backends</span>
+      </div>
+  
+      <!-- Collect the nav links, forms, and other content for toggling 根据屏幕大小折叠-->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="{{ url_for('admin_item_management') }}">Flower Manage</a></li>
+          <li><a href="{{ url_for('admin_order_info') }}">Order</a></li>
+          <li><a href="{{ url_for('admin_message') }}">Message</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Else<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="{{ url_for('admin_change_format') }}">Change Format</a></li>           
+              <li role="separator" class="divider"></li>
+              <li><a href="{{ url_for('admin_change_category') }}">Modify Category</a></li>
+            </ul>
+          </li>
+        </ul>
+        {% if navState==1 %}
+        <form class="navbar-form navbar-left">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        {% endif %}
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">English/Chinese</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+        {% block content %}
+        {% endblock %}
+        
+    </body>
+
+</html>
